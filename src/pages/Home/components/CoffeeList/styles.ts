@@ -1,23 +1,15 @@
 import styled from "styled-components";
 
 export const MainWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 5rem 0;
-
-  h1{
-    width: 100%;
-    font-size: 2rem;
-    font-family: 'Baloo 2';
-    color: ${(props) => props.theme.colors["base-subtitle"]};
-  }
+  width: 100%;
+  margin-top: 2rem;
 `
 
 export const CoffeeItems = styled.div`
-  display: flex;
-  gap: 2rem;
-  padding: 2.5rem 0;
-  flex-wrap: wrap;
   width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 2rem;
+  row-gap: 1.5rem;
+  margin-top: 3.5rem;
 `

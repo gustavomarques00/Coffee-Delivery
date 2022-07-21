@@ -1,4 +1,4 @@
-import CoffeeIMG from "../../../../assets/Coffee.svg";
+import CoffeeIMG from "../../../../assets/coffee-delivery-logo.svg";
 import { InfoWithIcon } from "../../../../components/InfoWithIcon";
 import { Package, ShoppingCart, Timer, Coffee } from "phosphor-react";
 import { useTheme } from "styled-components";

@@ -1,60 +1,45 @@
 import styled from "styled-components";
-import { TitleText } from "../../../../../components/Typography";
+import { RegularText, TitleText } from "../../../../../components/Typography";
 
-export const MainWrapperItem = styled.div`
-  background-color: ${(props) => props.theme.colors["base-card"]};
+export const CoffeeCardContainer = styled.div`
+  width: 100%;
+  background: ${({ theme }) => theme.colors["base-card"]};
+  border-radius: 6px 36px 6px 36px;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 1.5rem;
-  border-radius: 0.375rem 2.25rem;
+  padding-top: 0;
+  text-align: center;
 
-  img{
+  img {
     width: 7.5rem;
     height: 7.5rem;
-    margin-top: -2.5rem;
+    margin-top: -1.25rem;
   }
-
-
-  h1 {
-    color: ${(props) => props.theme.colors["base-subtitle"]};
-    font-weight: 700;
-    font-size: 1.25rem;
-    text-align: center;
-    margin-bottom: 0.5rem;
-  }
-
-  p{
-    color: ${(props) => props.theme.colors["base-label"]};
-    font-size: 0.875rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    max-width: 15rem;
-  }
-`
+`;
 
 export const Tags = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 4px;
   margin-top: 1rem;
   margin-bottom: 1.25rem;
   flex-wrap: wrap;
 
-  span{
-    background-color: ${(props) => props.theme.colors["brand-yellow-light"]};
-    color: ${(props) => props.theme.colors["brand-yellow-dark"]};
-    font-size: ${(props) => props.theme.textSizes["components-tag"]};
-    font-weight: 700;
+  span {
+    background: ${({ theme }) => theme.colors["brand-yellow-light"]};
+    color: ${({ theme }) => theme.colors["brand-yellow-dark"]};
+    font-size: ${({ theme }) => theme.textSizes["components-tag"]};
+    text-transform: uppercase;
     padding: 0.25rem 0.5rem;
     border-radius: 999px;
-    text-transform: uppercase;
+    font-weight: 700;
   }
-`
+`;
+
 
 export const Name = styled(TitleText).attrs({
   size: "s",
@@ -64,37 +49,49 @@ export const Name = styled(TitleText).attrs({
   margin-bottom: 0.5rem;
 `
 
-
-
-export const FooterTab = styled.div`
-  display: flex;
-  gap: 1.3rem;
-  align-items: center;
+export const Description = styled(RegularText).attrs({
+  size: "s",
+  color: "label",
+})`
+  margin-bottom: 2rem;
 `
 
-export const Price = styled.div`
-  desc {
-    font-family: 'baloo 2';
-    color: ${(props) => props.theme.colors["base-text"]};
-    font-size: 1.5rem;
-    font-weight: 800;
-  }
-`
-
-export const ActionButtons = styled.div`
+export const CardFooter = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
 
-  button{
+  > div {
     display: flex;
-    background-color: ${(props) => props.theme.colors["brand-purple-dark"]};
-    color: ${(props) => props.theme.colors["base-card"]};
-    padding: 0.5rem;
-    border-radius: 0.375rem;
+    align-items: center;
+    gap: 3px;
+
+    p {
+      line-height: 0.75rem;
+    }
+
   }
+`
 
-  input[type='number'] {
+export const AddCartWrapper = styled.div`
+  width: 7.5rem;
 
+  > button{
+    width: 2.375rem;
+    height: 2.375rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: ${({ theme }) => theme.colors["brand-purple-dark"]};
+    color: ${({ theme }) => theme.colors["base-card"]};
+    border-radius: 6px;
+    margin-left: 0.3rem;
+    transition: .4s;
+
+    &:hover{
+      background-color: ${({ theme }) => theme.colors["brand-purple"]};
+    }
   }
 `

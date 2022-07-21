@@ -1,30 +1,61 @@
-import { ActionButtons, FooterTab, MainWrapperItem, Price, Tags } from "./styles";
+import {
+  CoffeeCardContainer,
+  Tags,
+  Name,
+  Description,
+  CardFooter,
+  AddCartWrapper,
+} from "./styles";
 import { ShoppingCart } from "phosphor-react";
 import Expresso from "../../../../../assets/coffees/Expresso.svg";
+import { RegularText, TitleText } from "../../../../../components/Typography";
+import { QuantityInput } from "../../../../../components/QuantityInput";
+import { FormatMoney } from "../../../../../utils/FormatMoney";
 
-export function CoffeeCard() {
+export interface Coffee {
+  id: number;
+  tags: string[];
+  name: string;
+  description: string;
+  photo: string;
+  price: number;
+}
+
+interface CoffeeProps {
+  coffee: Coffee;
+}
+
+export function CoffeeCard({ coffee }: CoffeeProps) {
+  const formattedPrice = FormatMoney(coffee.price);
+
   return (
-    <MainWrapperItem>
-      <img src={Expresso} alt='Café Expresso' />
-      <Tags>
-        <span>Tradicional</span>
-        <span>Com Leite</span>
-      </Tags>
-      
-      <h1>Expresso Tradicional</h1>
-      <p>O tradicional café feito com água quente e grãos moídos</p>
+    <CoffeeCardContainer>
+      <img src={`/coffees/${coffee.photo}`} />
 
-      <FooterTab>
-        <Price>
-          <desc>R$ 9,90</desc>
-        </Price>
-        <ActionButtons>
-          <input type='number' />
+      <Tags>
+        {coffee.tags.map((tag) => (
+          <span key={`${coffee.id}${tag}`}>{tag}</span>
+        ))}
+      </Tags>
+
+      <Name>{coffee.name}</Name>
+      <Description>{coffee.description}</Description>
+
+      <CardFooter>
+        <div>
+          <RegularText size='s'>R$</RegularText>
+          <TitleText size='m' color='text' as='strong'>
+            {formattedPrice}
+          </TitleText>
+        </div>
+
+        <AddCartWrapper>
+          <QuantityInput />
           <button>
             <ShoppingCart size={22} weight='fill' />
           </button>
-        </ActionButtons>
-      </FooterTab>
-    </MainWrapperItem>
+        </AddCartWrapper>
+      </CardFooter>
+    </CoffeeCardContainer>
   );
 }

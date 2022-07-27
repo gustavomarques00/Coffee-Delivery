@@ -41,6 +41,7 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
   padding: 0 0.5rem;
   position: relative;
   cursor: inherit;
+  
   span {
     position: absolute;
     width: 1.25rem;
